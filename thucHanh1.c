@@ -3,7 +3,7 @@
 #include<unistd.h>
 #include<sys/wait.h>
 int main(){
-	int pid = fork();
+	pid_t pid = fork();
 
 	if(pid == -1){
 		fprintf(stderr,"Khong the tao tien trinh!");
@@ -11,14 +11,12 @@ int main(){
 	}
 	else if(pid > 0){
 		printf("Tien trinh cha (PID = %d)\n",getpid());
-	
 	}
 	else{
 		printf("Tien trinh con (PID = %d)\n",getpid());
 		sleep(2);
-		
 	}
-
+	//==========================================================
 	if(pid>0){
 		printf("Day la tien trinh cha\n");
 		wait(NULL);
